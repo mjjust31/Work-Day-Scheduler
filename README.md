@@ -1,6 +1,7 @@
 # Work-Day-Scheduler
 
-Live link: 
+Live link: https://mjjust31.github.io/Work-Day-Scheduler/
+
 
 
 User Story
