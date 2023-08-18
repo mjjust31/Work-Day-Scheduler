@@ -25,3 +25,10 @@ WHEN I click the save button for that time block
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
+
+
+1. https://api.jquery.com/category/manipulation/class-attribute/. For reviewing how to address add/removing/hiding classes using jquery. 
+      a. Essentially, we are going to compare the current hour to each of the id elements on the page. If the current hour matches the current ID in the HTML, we will need to create a function to change the class to address the color change.
+      b. How to address the logic of the current hour to write a line of code for each hour. 
+
+2. https://developer.mozilla.org/en-US/docs/Web/API/Element/matches. 

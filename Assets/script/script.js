@@ -1,7 +1,43 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
 $(function () {
+  var today = dayjs();
+
+  // $("#currentDay").text(today.format("MMMM D, YYYY hh:mm:ss A"));
+
+  function displayDateTime() {
+    var currentDayEl = $("#currentDay");
+    var currentDateTime = dayjs().format("MMMM D, YYYY hh:mm:ss A");
+    currentDayEl.text(currentDateTime);
+    // console.log(currentDateTime);
+  }
+  displayDateTime();
+  setInterval(displayDateTime, 1000);
+
+  var currentHour = dayjs().format("hh");
+  console.log(currentHour);
+
+  var idName = "hour-" + currentHour;
+  var idEl = document.getElementById(idName);
+  console.log(idName);
+  // console.log(idEl);
+  console.log(idEl.id);
+
+  //variabls for past, present, future
+  var present = dayjs().isSame(today, "hour");
+  console.log(present);
+  var future = dayjs().isAfter(today, "hour");
+  console.log(future)
+  var past =  dayjs().isBefore(today, "hour");
+  console.log(past)
+
+
+  // if(idName.matches(idEl.id)){
+  //   console.log("working")
+  // } else {console.log("try again")}
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -10,7 +46,6 @@ $(function () {
   // useful when saving the description in local storage?
   //
 
-  
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
@@ -21,7 +56,4 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-
-  var today = dayjs();
-  $("#currentDay").text(today.format("MMMM D, YYYY"));
 });
