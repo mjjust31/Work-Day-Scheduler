@@ -26,13 +26,18 @@ $(function () {
   console.log(idEl.id);
 
   //variabls for past, present, future
-  var present = dayjs().isSame(today, "hour");
-  console.log(present);
-  var future = dayjs().isAfter(today, "hour");
-  console.log(future)
-  var past =  dayjs().isBefore(today, "hour");
-  console.log(past)
+  var presentHour = dayjs().isSame(today, "hour"); //boolean
+  console.log(presentHour);
+  var futureHour = dayjs().isAfter(today, "hour"); //boolean
+  console.log(futureHour);
+  var pastHour = dayjs().isBefore(today, "hour"); //boolean
+  console.log(pastHour);
 
+  // $('#hour-03').addClass('present')
+  if (presentHour) {
+    console.log("check");
+    $(idEl).addClass("present");
+  }
 
   // if(idName.matches(idEl.id)){
   //   console.log("working")

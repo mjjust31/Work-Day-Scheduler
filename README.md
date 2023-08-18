@@ -32,3 +32,5 @@ THEN the saved events persist
       b. How to address the logic of the current hour to write a line of code for each hour. 
 
 2. https://developer.mozilla.org/en-US/docs/Web/API/Element/matches. 
+
+3. https://day.js.org/docs/en/query/is-same. Reviewed the isSame isAfter and isBefore documentation for day.js.
