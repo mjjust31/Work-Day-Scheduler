@@ -34,3 +34,5 @@ THEN the saved events persist
 2. https://developer.mozilla.org/en-US/docs/Web/API/Element/matches. 
 
 3. https://day.js.org/docs/en/query/is-same. Reviewed the isSame isAfter and isBefore documentation for day.js.
+
+4. First piece solved was to get the current date and time to showat the top part. I used Boostrap to align the text and post current time. I think created logic fo
