@@ -23,36 +23,48 @@ $(function () {
   displayDateTime();
   setInterval(displayDateTime, 1000);
 
-  if (presentHour){//confirmation is working
-   var idEl = $('#hour-11'); 
-   idEl.addClass('present');
-  }
+//   if (currentHour) {
+//     //confirmation is working
+//     var idEl = $(".container-fluid").find("div");
+//     console.log(idEl);
+//   }
+// });
 
-});
+var id = $("*[id*=hour-]");
+console.log(id);
 
+var currentHour = dayjs().format('hh')
+console.log(currentHour);
 
+var hourBands = $(".container-fluid");
 
-  // function presentHourDisplay() {
-  // var currentHour = dayjs().format("hh");
-  // console.log(currentHour);
+// hourBands.each(function () {
+//   var hour = parseInt($(this).attr("id").split("-")[1]);//searching through the container-fluid and looking for id and converting to number with parseInt.
 
-  //   var idName = "hour-" + currentHour;
-  //   var idEl = $(idName); //this element is only looking for the current hour.
-  //   console.log('#idName');
-  //   console.log(idEl);
-  //   if (presentHour) {
-  //     console.log("check");
-  //     $(idEl).addClass("present");
-  // //   }
-  // }
-  // presentHourDisplay();
-  // setInterval(presentHourDisplay, 60000);
+//   if (hour < currentHour) {
+//     $(this).addClass("past");
+//   } else if (hour === currentHour) {
+//     $(this).addClass("present");
+//   } else {
+//     $(this).addClass("future");
+//   }
+// });})
 
-  // if (currentHour > pastHour){
-  //   var testEl = $('#hour-09');
-  //   console.log(testEl)
-  //   $(testEl).addClass("past");
-  // }
+// function presentHourDisplay() {
+
+//   if (presentHour) {
+//     console.log("check");
+//     $(idEl).addClass("present");
+// //   }
+// }
+// presentHourDisplay();
+// setInterval(presentHourDisplay, 60000);
+
+// if (currentHour > pastHour){
+//   var testEl = $('#hour-09');
+//   console.log(testEl)
+//   $(testEl).addClass("past");
+// }
 
 // $('#hour-03').addClass('present')
 

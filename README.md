@@ -36,3 +36,10 @@ THEN the saved events persist
 3. https://day.js.org/docs/en/query/is-same. Reviewed the isSame isAfter and isBefore documentation for day.js.
 
 4. First piece solved was to get the current date and time to showat the top part. I used Boostrap to align the text and post current time. I think created logic fo
+
+5. https://stackoverflow.com/questions/1206739/find-all-elements-on-a-page-whose-element-id-contains-a-certain-text-using-jquer
+
+
+6. HINT: What does `this` reference in the click listener function?. I references this article to see how I can implement "this" for the code. https://blog.kevinchisholm.com/javascript/the-javascript-this-keyword-deep-dive-jquery-click-handlers/. Essentially, using $('this') within an event listener of fuction, refers to the that action of fuuction. So, under the container-fluid, I think I can use "this' to have it search throught the HTML as long as it is under "container-fluid".
+
+7. https://stackoverflow.com/questions/34189247/how-to-use-jquery-to-retrieve-only-the-second-item-in-a-comma-separated-value-on. Reading on how to retrieve the second half of the data.
