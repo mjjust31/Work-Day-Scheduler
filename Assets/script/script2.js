@@ -35,3 +35,4 @@ function matchHour() {
   }
 }
 matchHour();
+setInterval(matchHour, 60000);
