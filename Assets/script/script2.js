@@ -5,10 +5,8 @@ console.log(timeBlocks);
 function displayDate() {
   var currentDayEl = document.querySelector("#currentDay");
   // console.log(currentDayEl);
-
   var dateAndTime = dayjs().format("dddd, MMMM DD YYYY, HH:mm:ss");
   // console.log(dateAndTime);
-
   currentDayEl.textContent = dateAndTime;
 }
 
@@ -17,7 +15,8 @@ setInterval(displayDate, 1000);
 
 function matchHour() {
   for (var i = 0; i < timeBlocks.length; i++) {
-    var currentHour = dayjs().format("HH");//this needed to be inside the function to get the updated hour when the function is called.
+
+    var currentHour = dayjs().format("HH"); //this needed to be inside the function to get the updated hour when the function is called.
     console.log(currentHour);
     var timeBlock = timeBlocks[i];
     var dataHour = timeBlock.getAttribute("data-hour");
@@ -33,4 +32,8 @@ function matchHour() {
   }
 }
 matchHour();
-setInterval(matchHour, 60000); //should be checking every minute to see if houris matched.
+setInterval(matchHour, 1000); // checking every minute to see if houris matched.
+
+var textAreasEl = document.querySelectorAll("textarea");
+console.log(textAreasEl);
+
