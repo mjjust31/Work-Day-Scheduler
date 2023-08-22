@@ -23,20 +23,70 @@ $(function () {
   displayDateTime();
   setInterval(displayDateTime, 1000);
 
-//   if (currentHour) {
-//     //confirmation is working
-//     var idEl = $(".container-fluid").find("div");
-//     console.log(idEl);
-//   }
-// });
+  var hourBands = $(".container-fluid").find("div");
+  console.log(hourBands);
 
-var id = $("*[id*=hour-]");
-console.log(id);
+  var currentHour = dayjs().hour();
+  console.log(currentHour);
 
-var currentHour = dayjs().format('hh')
-console.log(currentHour);
+  $("textarea").focus(function () {
+    $(this).css("background", "#ffdefb");
+  });
 
-var hourBands = $(".container-fluid");
+  $("textarea").blur(function () {
+    $(this).css("background", "white");
+  });
+
+  $('.save-btn').on('click', function(e) {
+    e.preventDefault();
+    var timeBlock = $(this).closest('.time-block');
+    var textarea = timeBlock.find('textarea');
+    var userInput = textarea.val();
+    var timeBlockId = timeBlock.attr('id');
+    
+   var userInputString = JSON.stringify(userInput);
+  //  var timeBlockIdString = JSON.stringify(timeBlockId);
+
+    // Save user input to localStorage
+    localStorage.setItem(timeBlockId, userInputString);
+    });
+  // for (let i = 9; i <= 17; i++) {
+
+
+  // $("textrea").on("keyup", function (event) {
+  //   event.preventDefault();
+  //   console.log("keyup");
+  // });
+
+  // for (var i = 9; i <= 17; i++) {
+  //   var saveText = localStorage.getItem("time-block-$[i]");
+  // }
+
+  // if (saveText) {
+  //   textarea = document.getElementById(`time-block-$[i]`).querySelector('textarea');
+  //   textarea.value = saveText;
+  // }
+
+  // $('div#hour-09').hide()
+
+  // if (currentHour === 9){
+  //   $('#hour-09').addClass('.present')
+  // } else if()
+
+  //   if (currentHour) {
+  //     //confirmation is working
+  //     var idEl = $(".container-fluid").find("div");
+  //     console.log(idEl);
+  //   }
+  // });
+
+  // var getHourId = $("*[id*=hour-]");
+  // getHourId.split();
+  // console.log(getHourId);
+
+  // var hour = attr("id").split("-")[1];
+  // console.log(hour);
+});
 
 // hourBands.each(function () {
 //   var hour = parseInt($(this).attr("id").split("-")[1]);//searching through the container-fluid and looking for id and converting to number with parseInt.
