@@ -23,11 +23,28 @@ $(function () {
   displayDateTime();
   setInterval(displayDateTime, 1000);
 
-  var hourBands = $(".container-fluid").find("div");
-  console.log(hourBands);
+  function matchHour() {
+    var timeBlocks = $(".time-block");
+    var currentHour = dayjs().format("HH");
 
-  var currentHour = dayjs().hour();
-  console.log(currentHour);
+    timeBlocks.each(function () {
+      var dataHour = $(this).attr("data-hour");
+
+      if (dataHour === currentHour) {
+        $(this).addClass("present");
+      } else if (dataHour > currentHour) {
+        $(this).addClass("future");
+      } else {
+        $(this).addClass("past");
+      }
+    });
+  }
+
+  // var hourBands = $(".container-fluid").find("div");
+  // console.log(hourBands);
+
+  // var currentHour = dayjs().hour();
+  // console.log(currentHour);
 
   $("textarea").focus(function () {
     $(this).css("background", "#ffdefb");
@@ -37,21 +54,20 @@ $(function () {
     $(this).css("background", "white");
   });
 
-  $('.save-btn').on('click', function(e) {
-    e.preventDefault();
-    var timeBlock = $(this).closest('.time-block');
-    var textarea = timeBlock.find('textarea');
-    var userInput = textarea.val();
-    var timeBlockId = timeBlock.attr('id');
-    
-   var userInputString = JSON.stringify(userInput);
-  //  var timeBlockIdString = JSON.stringify(timeBlockId);
+  // $('.save-btn').on('click', function(e) {
+  //   e.preventDefault();
+  //   var timeBlock = $(this).closest('.time-block');
+  //   var textarea = timeBlock.find('textarea');
+  //   var userInput = textarea.val();
+  //   var timeBlockId = timeBlock.attr('id');
 
-    // Save user input to localStorage
-    localStorage.setItem(timeBlockId, userInputString);
-    });
+  //  var userInputString = JSON.stringify(userInput);
+  // //  var timeBlockIdString = JSON.stringify(timeBlockId);
+
+  //   // Save user input to localStorage
+  //   localStorage.setItem(timeBlockId, userInputString);
+  //   });
   // for (let i = 9; i <= 17; i++) {
-
 
   // $("textrea").on("keyup", function (event) {
   //   event.preventDefault();
