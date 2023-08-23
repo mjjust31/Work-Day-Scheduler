@@ -23,7 +23,7 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
-I had struggled using jquery for this exercise. I decided to see if I was able to accomplish the tast first but using vanilla javascript to first get confirm I can work throught the functionality of the the assignment. In the beginning, I had trouble locating certain elements on where I wanted to locate all the items. I decided to use a data attribute (data-hour) to compare the hour to dayj rather than worry about splitting the current ID to get a number returned to compare it against.
+I had struggled using jquery for this exercise. I decided to see if I was able to accomplish the task first but using vanilla javascript (script2) to first get confirm I can work throught the functionality of the the assignment. In the beginning, I had trouble locating certain elements on where I wanted to locate all the items. I decided to use a data attribute (data-hour) to compare the hour to dayj rather than worry about splitting the current ID to get a number returned to compare it against.
 
 I then created a loop to search through the timblocks on the html. If the data-hour matched the current hour, I added the present class and removed all others and continued for if hours were greater for past - every other case I added future.
 
