@@ -2,49 +2,40 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-//variabls for past, present, future
-var presentHour = dayjs().isSame(today, "hour"); //boolean
-console.log(presentHour);
-var futureHour = dayjs().isAfter(today, "hour"); //boolean
-console.log(futureHour);
-var pastHour = dayjs().isBefore(today, "hour"); //boolean
-console.log(pastHour);
-var today = dayjs();
+// var timeBlocks = $(".time-block");
 
 $(function () {
-  // $("#currentDay").text(today.format("MMMM D, YYYY hh:mm:ss A"));
+  displayDateTime();
+  setInterval(displayDateTime, 1000);
+  matchHour();
+  setInterval(matchHour, 1000);
 
   function displayDateTime() {
     var currentDayEl = $("#currentDay");
     var currentDateTime = dayjs().format("MMMM DD, YYYY hh:mm:ss A");
     currentDayEl.text(currentDateTime);
-    // console.log(currentDateTime);
   }
-  displayDateTime();
-  setInterval(displayDateTime, 1000);
 
   function matchHour() {
-    var timeBlocks = $(".time-block");
-    var currentHour = dayjs().format("HH");
-
-    timeBlocks.each(function () {
-      var dataHour = $(this).attr("data-hour");
+    $(".timeBlocks").each(function () {
+      var currentHour = dayjs().format("H");
+      var dataHour = parseInt($(this).data("hour"));
 
       if (dataHour === currentHour) {
         $(this).addClass("present");
+        $(this).removeClass("future");
+        $(this).removeClass("past");
       } else if (dataHour > currentHour) {
         $(this).addClass("future");
+        $(this).removeClass("past");
+        $(this).removeClass("present");
       } else {
         $(this).addClass("past");
+        $(this).removeClass("future");
+        $(this).removeClass("present");
       }
     });
   }
-
-  // var hourBands = $(".container-fluid").find("div");
-  // console.log(hourBands);
-
-  // var currentHour = dayjs().hour();
-  // console.log(currentHour);
 
   $("textarea").focus(function () {
     $(this).css("background", "#ffdefb");
@@ -53,56 +44,56 @@ $(function () {
   $("textarea").blur(function () {
     $(this).css("background", "white");
   });
-
-  // $('.save-btn').on('click', function(e) {
-  //   e.preventDefault();
-  //   var timeBlock = $(this).closest('.time-block');
-  //   var textarea = timeBlock.find('textarea');
-  //   var userInput = textarea.val();
-  //   var timeBlockId = timeBlock.attr('id');
-
-  //  var userInputString = JSON.stringify(userInput);
-  // //  var timeBlockIdString = JSON.stringify(timeBlockId);
-
-  //   // Save user input to localStorage
-  //   localStorage.setItem(timeBlockId, userInputString);
-  //   });
-  // for (let i = 9; i <= 17; i++) {
-
-  // $("textrea").on("keyup", function (event) {
-  //   event.preventDefault();
-  //   console.log("keyup");
-  // });
-
-  // for (var i = 9; i <= 17; i++) {
-  //   var saveText = localStorage.getItem("time-block-$[i]");
-  // }
-
-  // if (saveText) {
-  //   textarea = document.getElementById(`time-block-$[i]`).querySelector('textarea');
-  //   textarea.value = saveText;
-  // }
-
-  // $('div#hour-09').hide()
-
-  // if (currentHour === 9){
-  //   $('#hour-09').addClass('.present')
-  // } else if()
-
-  //   if (currentHour) {
-  //     //confirmation is working
-  //     var idEl = $(".container-fluid").find("div");
-  //     console.log(idEl);
-  //   }
-  // });
-
-  // var getHourId = $("*[id*=hour-]");
-  // getHourId.split();
-  // console.log(getHourId);
-
-  // var hour = attr("id").split("-")[1];
-  // console.log(hour);
 });
+
+// var hour = attr("id").split("-")[1];
+// console.log(hour);
+
+// $('.save-btn').on('click', function(e) {
+//   e.preventDefault();
+//   var timeBlock = $(this).closest('.time-block');
+//   var textarea = timeBlock.find('textarea');
+//   var userInput = textarea.val();
+//   var timeBlockId = timeBlock.attr('id');
+
+//  var userInputString = JSON.stringify(userInput);
+// //  var timeBlockIdString = JSON.stringify(timeBlockId);
+
+//   // Save user input to localStorage
+//   localStorage.setItem(timeBlockId, userInputString);
+//   });
+// for (let i = 9; i <= 17; i++) {
+
+// $("textrea").on("keyup", function (event) {
+//   event.preventDefault();
+//   console.log("keyup");
+// });
+
+// for (var i = 9; i <= 17; i++) {
+//   var saveText = localStorage.getItem("time-block-$[i]");
+// }
+
+// if (saveText) {
+//   textarea = document.getElementById(`time-block-$[i]`).querySelector('textarea');
+//   textarea.value = saveText;
+// }
+
+// $('div#hour-09').hide()
+
+// if (currentHour === 9){
+//   $('#hour-09').addClass('.present')
+// } else if()
+
+//   if (currentHour) {
+//     //confirmation is working
+//     var idEl = $(".container-fluid").find("div");
+//     console.log(idEl);
+//   }
+// });
+
+// var getHourId = $("*[id*=hour-]");
+// getHourId.split();
+// console.log(getHourId);
 
 // hourBands.each(function () {
 //   var hour = parseInt($(this).attr("id").split("-")[1]);//searching through the container-fluid and looking for id and converting to number with parseInt.

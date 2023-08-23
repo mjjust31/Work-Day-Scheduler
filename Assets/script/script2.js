@@ -37,6 +37,8 @@ function matchHour() {
     }
   }
 }
+matchHour();
+setInterval(matchHour, 1000); // checking every minute to see if houris matched.
 
 function loadSavedText() {
   for (let i = 0; i < textAreasEl.length; i++) {
@@ -48,9 +50,6 @@ function loadSavedText() {
     }
   }
 }
-
-matchHour();
-setInterval(matchHour, 1000); // checking every minute to see if houris matched.
 
 function loadSavedText() {
   for (let i = 0; i < textAreasEl.length; i++) {
@@ -78,6 +77,12 @@ function saveToLocal() {
       for (var i = 0; i < textAreasEl.length; i++) {
         var textValue = textAreasEl[i].value;
         var textId = textAreasEl[i].getAttribute("id");
+
+        // if (textValue.trim() === '') {
+        //   var savedItemId = document.querySelector("#savedItem");
+        //   savedItemId.textContent =
+        //     "Please save a task for your Work Day scheduler";
+        // } else {
         localStorage.setItem(textId, textValue);
       }
       displayMessage();
@@ -90,7 +95,8 @@ loadSavedText();
 
 function displayMessage() {
   var savedItemId = document.querySelector("#savedItem");
-  savedItemId.textContent = " Your item was saved to local storage! Double click the save button to remove all items from local storage 💗";
+  savedItemId.textContent =
+    " Your item was saved to local storage! Double click the save button to remove all items from local storage 💗";
 
   setTimeout(function () {
     savedItemId.textContent = "";
