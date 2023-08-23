@@ -80,17 +80,43 @@ function saveToLocal() {
         var textId = textAreasEl[i].getAttribute("id");
         localStorage.setItem(textId, textValue);
       }
+      displayMessage();
     });
   }
-  displayMessage();
 }
-
-function displayMessage() {
-  var savedItemId = document.querySelector("#savedItem");
-  savedItemId.setAttribute("style", "display:block");
-};
-
-function removeMessage(){}
 
 saveToLocal();
 loadSavedText();
+
+function displayMessage() {
+  var savedItemId = document.querySelector("#savedItem");
+  savedItemId.textContent = " Your item was saved to local storage! Double click the save button to remove all items from local storage 💗";
+
+  setTimeout(function () {
+    savedItemId.textContent = "";
+  }, 10000);
+}
+
+function removeLocal() {
+  for (var i = 0; i < saveButton.length; i++) {
+    saveButton[i].addEventListener("dblclick", function (event) {
+      event.preventDefault();
+      for (var i = 0; i < textAreasEl.length; i++) {
+        var textValue = textAreasEl[i].value;
+        var textId = textAreasEl[i].getAttribute("id");
+        localStorage.removeItem(textId, textValue);
+      }
+      removeMessage();
+    });
+  }
+}
+removeLocal();
+
+function removeMessage() {
+  var savedItemId = document.querySelector("#savedItem");
+  savedItemId.textContent = " Your item was removed from local storage! 💗";
+
+  setTimeout(function () {
+    savedItemId.textContent = "";
+  }, 7000);
+}
